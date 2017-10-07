@@ -14,7 +14,6 @@ club sandwhich
 donuts
 dumplings
 eggs benedict
-falafel
 fish and chips
 french fries
 fried rice
@@ -27,14 +26,15 @@ nachos
 omelette
 onion rings
 pad thai
+pancakes
 pho
 pizza
 pork chop
 ramen
 ravioli
+samosa
 sashimi
 spaghetti
-steak
 sushi
 tacos
 waffles
