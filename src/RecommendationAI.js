@@ -6,7 +6,7 @@ var Neuron = synaptic.Neuron,
         Architect = synaptic.Architect;
 
 
-
+/*
 function Perceptron(input, hidden, output)
     {
     // create the layers
@@ -29,8 +29,9 @@ function Perceptron(input, hidden, output)
 // extend the prototype chain
 Perceptron.prototype = new Network();
 Perceptron.prototype.constructor = Perceptron;
+*/
 
-var myNetwork = new Architect.Perceptron(101, 51, 1)
+var myNetwork = new Architect.Perceptron(101, 51, 51, 1)
 var trainer = new Trainer(myNetwork)
 
 var trainingSet = [
