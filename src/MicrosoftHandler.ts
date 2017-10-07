@@ -3,10 +3,11 @@ const request = require('request-promise-native');
 
 
 function callAPI (url) {
+    // hard coded URI and prediction key
     const options = {
-      uri: process.env.PREDICTION_URL,
+      uri: "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/9f0308d6-9ff8-445a-be69-aa6ad1025c41/url",
       headers: {
-        'Prediction-Key': process.env.PREDICTION_KEY,
+        'Prediction-Key': "753d96c2180f4b27be9149445586d201",
         'Content-Type': 'application/json'
       },
       body: `{"Url": "${url}"}`
