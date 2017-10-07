@@ -8,6 +8,5 @@ MongoClient.connect(url, function(err, db) {
     if (db !== null && db !== undefined) {
         console.log("Connected successfully to server");
     }
-
-    //db.close();
+    db.close();
   });

@@ -73,7 +73,12 @@ let trainingSet = [
 ]
 
 // trains our model with training set
-trainer.train(trainingSet);
+trainer.train(trainingSet, {
+  rate: .1,
+  iterations: 100,
+  log: 5,
+  cost: Trainer.cost.CROSS_ENTROPY
+});
 
-//let result = myNetwork.activate([0,0,1]);
-//console.log(result);
+let result = myNetwork.activate([0,0,1]); // on restaurant photos
+console.log(result);
