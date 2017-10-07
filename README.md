@@ -10,30 +10,32 @@ Design Document for CalHacks 4.0
 
 ## Description
 1. Use machine learning to predict what restaurants the user would like to try in a new area based off of:
-   - Images the user selects - We choose images from random restaurants in the area and label them
-   - Use image recognition to label the images
+   - Images the user selects - We use preclassified images to lower processing load on Microsoft
    - From these labels form a model and import images from random restaurants
-   - Choose a restaurant based on label/model score
+   - Use **Microsoft customAI** image recognition to label the images
+   - Choose a restaurant based on label/model score with **Synpatic** JS ML 
    - Improve model with user feedback
-   - Use OpenTable to Reserve tables at the selected restaurant
-   - Google Location (only show results that are within a radius)
+   - Store user models in MongoDB through **MLAB**
+   - Use **OpenTable** to Reserve tables at the selected restaurant
+   - **Google Location** (only show results that are within a radius)
    - (optional) Personality data (IBM Watson API)
    - (optional) Can check weather so hot noodle place for cold day, ice cream for hot day etc.
 
 2. Front End User-Flow
    - Login via Facebook
-     - Facebook API
+     - **Facebook API**
    - 3x3 grids of photos for preference building and model initiation
      - Users can keep picking photos
      - This data initializes machine learning
      - Users can indicate diet preferences (vegetarian/vegan) (allergies optional)
+     - Users can return to this at anytime to update their preferences
    - Machine then gives suggestions
      - Show multiple photos
      - Show Name
      - Show location on map
      - Show Reviews from OpenTable API
      - Possible Responses:
-       - Reserve a table here
+       - Reserve a table here (validates machine)
        - Maybe another time (validates machine)
        - Nah (invalidates machine)
 
@@ -45,11 +47,11 @@ Design Document for CalHacks 4.0
 
 ## Technologies
 1. NodeJS
-2. MongoDB
+2. MongoDB (MLAB)
 3. Express
 4. React or AngularJS
-5. Machine Learning JavaScript Library (To Be Decided)
-6. Machine Learning Image Recognition (microsoft?)
+5. Synaptic (Machine Learning JavaScript Library)
+6. Microsoft CustomAI (Machine Learning Image Recognition)
 7. Facebook Login
-8. OpenTable API 
+8. OpenTable API
 9.(optional) IBM Watson
