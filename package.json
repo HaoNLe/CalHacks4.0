@@ -18,5 +18,12 @@
   "homepage": "https://github.com/HaoNLe/CalHacks4.0#readme",
   "dependencies": {
     "express": "^4.16.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-ts": "^6.0.0-beta.16",
+    "typescript": "^2.5.3"
   }
 }
