@@ -1,7 +1,6 @@
 'use strict';
 const request = require('request-promise-native');
 
-
 function callAPI (url) {
     // hard coded URI and prediction key
     const options = {

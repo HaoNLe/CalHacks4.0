@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/HaoNLe/CalHacks4.0#readme",
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "mongodb": "^2.2.31"
   },
   "devDependencies": {
     "@types/node": "^8.0.33",
