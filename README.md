@@ -10,9 +10,14 @@ Design Document for CalHacks 4.0
 
 ## Description
 1. Use machine learning to predict what restaurants the user would like to try in a new area based off of:
-   - Past choices (manually input your favorite places to eat + gathered data through app usage) 
-   - (optional) Personality data (IBM Watson API)
+   - Images the user selects - We choose images from random restaurants in the area and label them
+   - Use image recognition to label the images
+   - From these labels form a model and import images from random restaurants
+   - Choose a restaurant based on label/model score
+   - Improve model with user feedback
+   - Use OpenTable to Reserve tables at the selected restaurant
    - Google Location (only show results that are within a radius)
+   - (optional) Personality data (IBM Watson API)
    - (optional) Can check weather so hot noodle place for cold day, ice cream for hot day etc.
 
 2. Front End User-Flow
@@ -44,5 +49,7 @@ Design Document for CalHacks 4.0
 3. Express
 4. React or AngularJS
 5. Machine Learning JavaScript Library (To Be Decided)
-6. Facebook Login
-7. (optional) IBM Watson
+6. Machine Learning Image Recognition (microsoft?)
+7. Facebook Login
+8. OpenTable API 
+9.(optional) IBM Watson
