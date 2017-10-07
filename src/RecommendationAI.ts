@@ -1,3 +1,5 @@
+'use strict';
+
 let synaptic = require('synaptic');
 let Neuron = synaptic.Neuron,
         Layer = synaptic.Layer,
