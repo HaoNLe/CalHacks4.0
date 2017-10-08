@@ -2,4 +2,5 @@ package-lock.json
 node_modules/
 dist/
 .tscache/
-src/routes/test.ts
+src/test.js
+src/test.ts

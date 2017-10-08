@@ -4,7 +4,7 @@ import request = require("request");
 
 
 /**
- * / route
+ * / route LOGIN page
  *
  * @class User
  */
