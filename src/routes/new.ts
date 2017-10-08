@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
+var path = require("path");
 
 const imageFolder = '../images/';
 const fs = require('fs');
@@ -31,8 +32,8 @@ export class NewRoute extends BaseRoute {
     console.log("[NewRoute::create] Creating new route.");
 
     //add new page route
-    router.get("/teach",  function(req: Request, res: Response) {
-      res.sendFile('preferences.html');      
+    router.get("/new",  function(req: Request, res: Response) {
+    res.sendFile(path.join(__dirname, '../public', 'preferences.html'));    
       //new NewRoute().teach(req, res, next);
     });
 
