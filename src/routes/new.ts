@@ -31,8 +31,9 @@ export class NewRoute extends BaseRoute {
     console.log("[NewRoute::create] Creating new route.");
 
     //add new page route
-    router.get("/teach", (req: Request, res: Response, next: NextFunction) => {
-      new NewRoute().teach(req, res, next);
+    router.get("/teach",  function(req: Request, res: Response) {
+      res.sendFile('preferences.html');      
+      //new NewRoute().teach(req, res, next);
     });
 
     //for preference submission
@@ -68,12 +69,19 @@ export class NewRoute extends BaseRoute {
    */
   public getURLs() {
     let fileURLs = [];
+    // TODO: ensure uniqueness in randomIndex
+    let seen = []
+
     for (let i = 0; i < 9; i++) {
         // gets random index between 0-39
-        let randomIndex = Math.floor(Math.random() * 40);
-        if (randomIndex === 40) {
-            randomIndex = 39;
+        let randomIndex = this.getRandomIndex();
+        
+        // Ensures that our randomIndex is unique thus far
+        while (randomIndex in seen) {
+          randomIndex = this.getRandomIndex();
         }
+        seen.push(randomIndex);
+
         let dir = imageFolder + tagNames[randomIndex];
         
         //let dir = testFolder + tagNames[i];    
@@ -91,5 +99,12 @@ export class NewRoute extends BaseRoute {
     }
     //console.log(fileURLs);
     return fileURLs;
+  }
+  public getRandomIndex() {
+    let randomIndex = Math.floor(Math.random() * 40);
+    if (randomIndex === 40) {
+        randomIndex = 39;
+    }
+    return randomIndex;
   }
 }

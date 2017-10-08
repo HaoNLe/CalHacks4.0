@@ -44,7 +44,7 @@ body {margin: 0;}
   }
 
 #background {
-    background: url('BG.JPG');
+    background: url('../assets/BG.JPG');
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
