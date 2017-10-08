@@ -67,5 +67,20 @@ function pullModel(email: string) {
 
 const RecommendationAI = require('./RecommendationAI');
 let model = new RecommendationAI();
+model.setData( [
+    {
+        input: [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        output: [1]
+    },
+    {
+        input: [0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        output: [0]
+    },
+    {
+        input: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],    
+        output: [1]
+    }
+]
+)
 
 pushModel("haole@berkeley.edu", model);
