@@ -1,7 +1,9 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
+import request = require("request");
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const path = require('path');
 import { GoogleClass } from "../googleAPI";
-var path = require("path");
 
 
 /**

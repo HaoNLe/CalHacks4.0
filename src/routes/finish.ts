@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
-
+const path = require('path');
 
 /**
  * / route
@@ -22,7 +22,8 @@ export class FinishRoute extends BaseRoute {
 
     //add home page route
     router.get("/finish", (req: Request, res: Response, next: NextFunction) => {
-      new FinishRoute().index(req, res, next);
+      res.sendFile(path.join(__dirname, '../public', 'finish.html'));
+      //new FinishRoute().index(req, res, next);
     });
   }
 

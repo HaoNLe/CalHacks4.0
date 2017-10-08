@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
+<<<<<<< HEAD
 var path = require("path");
+=======
+const path = require('path');
+>>>>>>> 5492b88f7bbee937539aa831ed8a6984ba054637
 
 const imageFolder = '../images/';
 const fs = require('fs');
@@ -32,11 +36,22 @@ export class NewRoute extends BaseRoute {
     console.log("[NewRoute::create] Creating new route.");
 
     //add new page route
+<<<<<<< HEAD
     router.get("/new",  function(req: Request, res: Response) {
     res.sendFile(path.join(__dirname, '../public', 'preferences.html'));    
+=======
+    router.get("/teach",  function(req: Request, res: Response) {
+      res.sendFile(path.join(__dirname, '../public', 'preferences.html'));      
+>>>>>>> 5492b88f7bbee937539aa831ed8a6984ba054637
       //new NewRoute().teach(req, res, next);
     });
 
+    router.post("/teach", function(req: Request, res:Response) {
+      console.log("train user model");
+      console.log(JSON.stringify(req.body));
+      
+      res.sendFile(path.join(__dirname, '../public', 'preferences.html'));
+    })
     //for preference submission
     //router.post('/teach', (req: Request, res:Response))
   }
@@ -51,16 +66,16 @@ export class NewRoute extends BaseRoute {
     super();
   }
 
-  public teach(req: Request, res: Response, next: NextFunction) {
+  public teach(req: Request, res: Response) {
     //set custom title
     this.title = "3x3 grid";
 
     let fileURLs = this.getURLs();
     //set options
-    let options: Object = { "message":"Create new preferences"};
+    //let options: Object = { "message":"Create new preferences"};
 
     //render template
-    this.render(req, res, "new", options);
+    res.sendFile(path.join(__dirname, '../public', 'preferences.html'));        
   }
 
   /**

@@ -44,7 +44,7 @@ async function classifyRestaurants (restaurants) {
     for (let i = 0; i < restaurants.length; i++) {
         let r = restaurants[i];
         let tag = await callAPI(r.url);
-        tags.push({'rid': r.rid, 'tag': tag});
+        tags.push({'rid': r.website, 'tag': tag});
     }
     return tags;
 }
