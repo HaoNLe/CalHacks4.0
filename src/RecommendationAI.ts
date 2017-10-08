@@ -16,13 +16,43 @@ const tagNames = ['apple_pie', 'baby_back_ribs', 'bibimbap', 'breakfast_burrito'
                   'pork_chop', 'ramen', 'ravioli', 'samosa', 'sashimi', 'spaghetti', 'sushi', 
                   'tacos', 'waffles'];
 
+export {};
 
-class dataModel {
+class RecommendationAI {
   private neuralNetwork;
   private trainer; 
-  constructor() {
+  private data;
+  public constructor() {
     this.neuralNetwork = new Architect.Perceptron(40, 20, 1);
     this.trainer = new Trainer(this.neuralNetwork);
+  }
+
+  /**
+   *  Getter method that returns neural network
+   */
+  public getNeuralNetwork() {
+    return this.neuralNetwork;
+  }
+
+  /**
+   *  Getter method that returns trainer
+   */
+  public getTrainer() {
+    return this.trainer;
+  }
+
+  /**
+   * 
+   */
+  public getData() {
+    return this.data;
+  }
+
+  /**
+   * 
+   */
+  public setData(newData) {
+    this.data = newData;
   }
 
   /**
@@ -31,8 +61,10 @@ class dataModel {
    * @param PLACEHOLDER input from user
    * @return Dictionary of tags and their probabilities
    */
-   public trainModel(PLACEHOLDER) {
+   public trainModel(userInputData) {
     
+    this.data.push.apply(this.data, userInputData);
+
     let trainingSet = [
       {
         input: [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -104,5 +136,4 @@ class dataModel {
 
 }
 
-
-
+module.exports = RecommendationAI;
