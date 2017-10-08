@@ -23,8 +23,9 @@ export class RecommendRoute extends BaseRoute {
     console.log("[RecommendRoute::create] Creating recommend route.");
 
     //add recommend page route
-    router.get("/recommend", (req: Request, res: Response, next: NextFunction) => {
-      new RecommendRoute().recommend(req, res, next);
+    router.get("/recommend",  function(req: Request, res: Response) {
+        res.sendFile('recommend.html');
+        //new RecommendRoute().recommend(req, res, next);
     });
   }
 

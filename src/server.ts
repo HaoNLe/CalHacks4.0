@@ -25,7 +25,7 @@ export class Server {
         this.app.use(express.static(path.join(__dirname, "public")));
         
         this.app.get('/style.css', function(req, res) {
-            res.sendFile(path.join(__dirname, '../assets', 'style.css'));            
+            res.sendFile('assets/style.css');            
           });
 
         this.app.set("views", path.join(__dirname, "views"));

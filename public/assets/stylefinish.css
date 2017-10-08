@@ -1,0 +1,54 @@
+img{
+
+}
+#background {
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: -100;
+    filter: blur(5px);
+}
+#background img {
+  width: 100vw;
+  opacity: 0.5;
+}
+
+#background-overlay{
+  background: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+body {
+    font-family: montserrat;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.Title1 {
+    font-size: 40px;
+    padding: 20px;
+}
+
+.Button {
+    font-size: 20px;
+    width: 200px;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #5485bb;
+    margin: 20px;
+    cursor: pointer;
+    color: white;
+    font-weight: 300;
+    border-radius: 5px;
+}
+
+.link {
+    margin: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: darkslategrey;
+}
