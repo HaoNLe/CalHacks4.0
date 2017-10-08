@@ -12,7 +12,7 @@ h4{
 }
 
 .img-fit{
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .title{
@@ -107,8 +107,8 @@ ul.thumbnails.image_picker_selector {
         flex-shrink: 0;
         min-width: 100%;
         min-height: 100%;
-        max-width: initial;
         position: absolute;
+        object-fit: cover;
         margin: auto;
         top: 0;
         bottom: 0;

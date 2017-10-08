@@ -13,7 +13,7 @@
 		jQuery("select").imagepicker({
 		  hide_select:  true,
 		    });
-		$('.submit').click(function(){ 
+		//$('.submit').click(function(){ 
 			// HARD-CODED TO TEST 
 			
 			// ------------
@@ -46,8 +46,8 @@
    // 					$(".picker").trigger("refresh");
 			// 	});
 			// MAKE SURE TO CHECK THAT THE <option> TAG IS BEING APPENDED TO THE RIGHT CLASS.
-			$('.selected').each(function(){ this.click() });
-		});
+			//$('.selected').each(function(){ this.click() });
+		//});
 		$('.clear').click(function(){ 
 			$('.selected').each(function(){ this.click() });
 		});
@@ -81,15 +81,15 @@
 			//document.location.href = ('/teach');			
 			$(".picker").empty();
 			$(".picker").append("<select class='image-picker show-html' multiple='multiple'> \
-				<option class='img-fit' data-img-src='assets/images/baby_back_ribs/3.jpg' value='puppy'>a</option> \
-				<option class='img-fit' data-img-src='assets/images/fish_and_chips/934084.jpg' value='puppy2'>b</option> \
-				<option class='img-fit' data-img-src='assets/images/ice_cream/81939.jpg' value='puppy3'>Puppy</c>\
-				<option class='img-fit' data-img-src='assets/images/french_fries/71701.jpg' value='1'>d</option> \
-				<option class='img-fit' data-img-src='assets/images/chicken_quesadilla/10257.jpg' value='e'>e</option> \
-				<option class='img-fit' data-img-src='assets/images/clam_chowder/3241182.jpg' value='2'>f</option> \
-				<option class='img-fit' data-img-src='assets/images/pho/472628.jpg' value='3'>g</option> \
-				<option class='img-fit' data-img-src='assets/images/macaroni_and_cheese/379982.jpg' value='4'>h</option> \
-				<option class='img-fit' data-img-src='assets/images/sushi/477126.jpg' value='5'>i</option></select>");
+				<option class='img-fit' id='1' data-img-src='assets/images/baby_back_ribs/3.jpg' value='puppy'>a</option> \
+				<option class='img-fit' id='2' data-img-src='assets/images/fish_and_chips/934084.jpg' value='puppy2'>b</option> \
+				<option class='img-fit' id='3' data-img-src='assets/images/ice_cream/81939.jpg' value='puppy3'>Puppy</c>\
+				<option class='img-fit' id='4' data-img-src='assets/images/french_fries/71701.jpg' value='1'>d</option> \
+				<option class='img-fit' id='5' data-img-src='assets/images/chicken_quesadilla/10257.jpg' value='e'>e</option> \
+				<option class='img-fit' id='6' data-img-src='assets/images/clam_chowder/3241182.jpg' value='2'>f</option> \
+				<option class='img-fit' id='7' data-img-src='assets/images/pho/472628.jpg' value='3'>g</option> \
+				<option class='img-fit' id='8' data-img-src='assets/images/macaroni_and_cheese/379982.jpg' value='4'>h</option> \
+				<option class='img-fit' id='9' data-img-src='assets/images/sushi/477126.jpg' value='5'>i</option></select>");
 			$(".picker").trigger("refresh");
 		});	
 	
