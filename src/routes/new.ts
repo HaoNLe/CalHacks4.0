@@ -36,7 +36,7 @@ export class NewRoute extends BaseRoute {
     });
 
     //for preference submission
-    router.post('/teach', (req: Request, res:Response))
+    //router.post('/teach', (req: Request, res:Response))
   }
 
   /**

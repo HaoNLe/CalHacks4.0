@@ -3,7 +3,7 @@ import { BaseRoute } from "./route";
 
 
 /**
- * / route
+ * / route LOGIN page
  *
  * @class User
  */
