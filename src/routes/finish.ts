@@ -25,6 +25,11 @@ export class FinishRoute extends BaseRoute {
       res.sendFile(path.join(__dirname, '../public', 'finish.html'));
       //new FinishRoute().index(req, res, next);
     });
+
+    router.post("/finish", (req: Request, res:Response) => {
+      res.send({ redirect: '/finish' })
+      res.end();
+    });
   }
 
   /**

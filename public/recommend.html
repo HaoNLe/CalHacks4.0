@@ -9,6 +9,17 @@
 	<link rel="stylesheet" href="assets/preference+suggestion.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src = "assets/js/script.js"></script>
+	<script>
+		$(document).ready(function(){
+		  $("#submit").click(function(){
+			$.post("http://localhost:8080/finish", function(data){
+			  if (data.redirect) {
+				document.location.href = data.redirect;
+			  }
+			});
+		  });
+		});
+	  </script>
 </head>
 
 <body>
@@ -50,7 +61,7 @@
      </div>
     <div id="footer">
     	<div class="buttons">
-    	<button class="submit done btn-success">Yes, I want to eat here!</button>
+    	<button id="submit" class="submit done btn-success">Yes, I want to eat here!</button>
     	<button class="submit done btn-info">Sounds good, but not today</button>
 		<button class="submit btn-danger">No thank you</button>
 		</div>
