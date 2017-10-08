@@ -23,9 +23,12 @@ export class Server {
 
     public config() {
         this.app.use(express.static(path.join(__dirname, "public")));
+        
+        this.app.get('/style.css', function(req, res) {
+            res.sendFile(path.join(__dirname, '../assets', 'style.css'));            
+          });
 
         this.app.set("views", path.join(__dirname, "views"));
-        this.app.set("view engine", "pug");
 
         this.app.use(bodyParser.urlencoded({
             extended: true

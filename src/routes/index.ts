@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
-
+const path = require('path');
 
 /**
  * / route LOGIN page
@@ -21,8 +21,10 @@ export class IndexRoute extends BaseRoute {
     console.log("[IndexRoute::create] Creating index route.");
 
     //add home page route
-    router.get("/", (req: Request, res: Response, next: NextFunction) => {
-      new IndexRoute().index(req, res, next);
+    router.get("/", function(req: Request, res: Response) {
+      res.sendFile(path.join(__dirname, '../views', 'index.html'));
+      //res.sendFile(path.join(__dirname, '../assets', 'style.css'));
+      //new IndexRoute().index(req, res, next);
     });
   }
 
@@ -37,13 +39,7 @@ export class IndexRoute extends BaseRoute {
   }
 
   public index(req: Request, res: Response, next: NextFunction) {
-    //set custom title
-    this.title = "Home Page";
-
-    //set options
-    let options: Object = { "message":"Where2Eat"};
-
     //render template
-    this.render(req, res, "index", options);
+    this.render(req, res, "index");
   }
 }
