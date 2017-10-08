@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
+import request = require("request");
 
 
 /**
@@ -17,6 +18,12 @@ export class IndexRoute extends BaseRoute {
    * @static
    */
   public static create(router: Router) {
+    var auth = request.get('https://platform.otqa.com/sync/directory').auth(null, null, true, '93f3db26-0929-4a96-9d27-3661cbbfb370');
+    request(auth, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var info = JSON.parse(body)
+      }
+    });
     //log
     console.log("[IndexRoute::create] Creating index route.");
 

@@ -21,7 +21,7 @@ export class NewRoute extends BaseRoute {
     console.log("[NewRoute::create] Creating new route.");
 
     //add new page route
-    router.get("/", (req: Request, res: Response, next: NextFunction) => {
+    router.get("/new", (req: Request, res: Response, next: NextFunction) => {
       new NewRoute().index(req, res, next);
     });
   }
@@ -41,7 +41,7 @@ export class NewRoute extends BaseRoute {
     this.title = "New Page";
 
     //set options
-    let options: Object = { "message":"Where2Eat"};
+    let options: Object = { "message":"Create new preferences"};
 
     //render template
     this.render(req, res, "new", options);

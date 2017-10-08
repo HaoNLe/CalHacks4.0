@@ -5,6 +5,9 @@ const express = require("express");
 const path = require("path");
 const errorHandler = require("errorhandler");
 const index_1 = require("./routes/index");
+const new_1 = require("./routes/new");
+const recommend_1 = require("./routes/recommend");
+const finish_1 = require("./routes/finish");
 class Server {
     static bootstrap() {
         return new Server();
@@ -30,6 +33,9 @@ class Server {
     routes() {
         let router = express.Router();
         index_1.IndexRoute.create(router);
+        new_1.NewRoute.create(router);
+        recommend_1.RecommendRoute.create(router);
+        finish_1.FinishRoute.create(router);
         this.app.use(router);
     }
 }
