@@ -29,9 +29,7 @@ function pushModel(email: string, userModel) {
     MongoClient.connect(url, function(err, db) {
         if (db !== null && db !== undefined) {
             console.log('Connected successfully to server');
-            
             let userDataCollection = db.collection('UserData');
-            console.log("Hi");
             
             userDataCollection.insert({'email': email, 'UserData': userModel.getData()}, function(err, result) {
                 if (!err) {
@@ -41,6 +39,7 @@ function pushModel(email: string, userModel) {
                     console.log('ERROR: ' + err);
                 }
             });
+            db.close();            
         }
     });
 }
@@ -52,22 +51,34 @@ function pushModel(email: string, userModel) {
  * @return {RecommendationAI} returns user model if user has one
  */
 function pullModel(email: string) {
-    this.userDataCollection.find({'email': email}, function(err, result) {
-        if (!err) {
-            console.log('userModel inserted for: ' + email);
-            return result.userModel;
-        }
-        else {
-            console.log('ERROR: ' + err);
-            return null;
+    MongoClient.connect(url, function(err, db) {
+        if (db !== null && db !== undefined) {
+            console.log('Connected successfully to server');
+            
+            let userDataCollection = db.collection('UserData');
+            console.log("Hi");
+            
+            userDataCollection.findOne({'email': email}, function(err, result) {
+                if (!err) {
+                    console.log('userModel retrieved for: ' + email);
+                    console.log(result);
+                    return result;
+                }
+                else {
+                    console.log('ERROR: ' + err);
+                    return null;
+                }
+            });
+            db.close();                        
         }
     });
 }
 
 
-const RecommendationAI = require('./RecommendationAI');
-let model = new RecommendationAI();
-model.setData( [
+//const RecommendationAI = require('./RecommendationAI');
+//let model = new RecommendationAI();
+/*
+model.setData([
     {
         input: [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         output: [1]
@@ -80,7 +91,8 @@ model.setData( [
         input: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],    
         output: [1]
     }
-]
-)
+])
+*/
+//pushModel("haole@berkeley.edu", model);
 
-pushModel("haole@berkeley.edu", model);
+//let model = pullModel('haole@berkeley.edu');
