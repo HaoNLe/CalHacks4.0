@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
+const path = require('path');
 
 const imageFolder = '../images/';
 const fs = require('fs');
@@ -32,10 +33,16 @@ export class NewRoute extends BaseRoute {
 
     //add new page route
     router.get("/teach",  function(req: Request, res: Response) {
-      res.sendFile('preferences.html');      
+      res.sendFile(path.join(__dirname, '../public', 'preferences.html'));      
       //new NewRoute().teach(req, res, next);
     });
 
+    router.post("/teach", function(req: Request, res:Response) {
+      console.log("train user model");
+      console.log(JSON.stringify(req.body));
+      
+      res.sendFile(path.join(__dirname, '../public', 'preferences.html'));
+    })
     //for preference submission
     //router.post('/teach', (req: Request, res:Response))
   }
@@ -50,16 +57,16 @@ export class NewRoute extends BaseRoute {
     super();
   }
 
-  public teach(req: Request, res: Response, next: NextFunction) {
+  public teach(req: Request, res: Response) {
     //set custom title
     this.title = "3x3 grid";
 
     let fileURLs = this.getURLs();
     //set options
-    let options: Object = { "message":"Create new preferences"};
+    //let options: Object = { "message":"Create new preferences"};
 
     //render template
-    this.render(req, res, "new", options);
+    res.sendFile(path.join(__dirname, '../public', 'preferences.html'));        
   }
 
   /**

@@ -3,6 +3,20 @@
   <head>
     <link rel="stylesheet" type="text/css" href="../assets/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400|Ribeye+Marrow" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        let user;
+        $("#submit").click(function(){
+          user=$("#email").val();
+          $.post("http://localhost:8080/",{user: user}, function(data){
+            if (data.redirect) {
+              document.location.href = data.redirect;
+            }
+          });
+        });
+      });
+    </script>
   </head>
 
   <body>
@@ -15,8 +29,10 @@
 
   	 <div id="login">
   				<div class="TitleM">Please enter your email to access personal recommendations:</div>
-  				<input type="text" class="content" placeholder="example@email.com">
-  				<div class="button">Log in</div>
+          <form class="form-signin">
+            <input type="text" class="content" id="email" placeholder="example@email.com">
+            <div class="button" id="submit" type="submit" value="Submit">Log in</div>
+          </form>
   	  </div>
     </div>
 

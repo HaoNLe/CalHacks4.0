@@ -22,7 +22,8 @@ export class FinishRoute extends BaseRoute {
 
     //add home page route
     router.get("/finish", (req: Request, res: Response, next: NextFunction) => {
-      new FinishRoute().index(req, res, next);
+      res.sendFile('finish.html');
+      //new FinishRoute().index(req, res, next);
     });
   }
 

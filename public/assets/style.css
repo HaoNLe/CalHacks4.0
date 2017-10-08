@@ -4,9 +4,10 @@ body {margin: 0;}
 	font-family: 'Montserrat';
 	text-align: center;
 	padding-left: 270px;
-	padding-right: 270px;
+  padding-right: 270px;
 	top: 70px;
-	position: absolute;
+  position: relative;
+  margin: 0 auto;
 }
 
 .Title1{padding-top: 40px;font-size: 24px;color: white;}

@@ -28,8 +28,12 @@ export class Server {
             res.sendFile('assets/style.css');            
           });
 
-        this.app.set("views", path.join(__dirname, "views"));
+        this.app.get('/stylefinish.css', function(req, res) {
+            res.sendFile('assets/stylefinish.css');            
+          });
 
+        this.app.use(logger("dev"));
+          
         this.app.use(bodyParser.urlencoded({
             extended: true
         }));

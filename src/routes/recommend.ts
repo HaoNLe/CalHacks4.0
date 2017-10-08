@@ -2,6 +2,7 @@ import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
 import request = require("request");
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const path = require('path');
 
 
 /**
@@ -24,7 +25,7 @@ export class RecommendRoute extends BaseRoute {
 
     //add recommend page route
     router.get("/recommend",  function(req: Request, res: Response) {
-        res.sendFile('recommend.html');
+        res.sendFile(path.join(__dirname, '../public', 'recommend.html'));
         //new RecommendRoute().recommend(req, res, next);
     });
   }
