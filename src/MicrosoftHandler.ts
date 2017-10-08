@@ -1,7 +1,13 @@
 'use strict';
 const request = require('request-promise-native');
 
-function callAPI (url) {
+/**
+ * Calls Microsoft custom AI API 
+ * 
+ * @param {string} url the url of an image
+ * @return {string} Top tag for an image
+ */
+function callAPI (url: string) {
     // hard coded URI and prediction key
     const options = {
       uri: "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/9f0308d6-9ff8-445a-be69-aa6ad1025c41/url",
@@ -10,64 +16,49 @@ function callAPI (url) {
         'Content-Type': 'application/json'
       },
       body: `{"Url": "${url}"}`
-    }
+    };
   
-    return request.post(options)
+    let tag = request.post(options)
       .then((result) => {
-        // PARSE THE RESPONSE TO FIND THE HIGHEST PREDICTION
-        // const top = parseResponse(results.Predictions)
-
-        // GET THE DATA FOR THE TOP SCORED TAG
-        // const data = getTagData(top)
+        
         console.log(JSON.parse(result));
-        return JSON.parse(result)
+        let predictions = JSON.parse(result).Predictions;
+
+        // Loop through tags and return highest tag
+        let top = predictions[0];
+        predictions.forEach(p => {
+          if (p.Probability > top.Probability) {
+            top = p;
+          }
+        })
+        return top.Tag;
       })
+    return tag;
   }
 
-callAPI("http://www.seriouseats.com/assets_c/2014/02/20140214-macaroni-and-cheese-baked-potato-broccoli-cheese-nacho-01-thumb-625xauto-383784.jpg");
+// callAPI("http://www.seriouseats.com/assets_c/2014/02/20140214-macaroni-and-cheese-baked-potato-broccoli-cheese-nacho-01-thumb-625xauto-383784.jpg");
 
-
-function parseResponse (predictions) {
-    // Loop through the array to find the top score
-    var top = predictions[0]
-    predictions.forEach(p => {
-      if (p.Probability > top.Probability) {
-        top = p
-      }
-    })
-    return top
-  }
-
-function getTagData (top) {
-    // return top.Tag;
-    var link = ''
-    var description = ''
-    // Decide which image and description to use based on the tag passed in
-    switch (top.Tag.toLowerCase()) {
-      case 'lannister':
-        link = '/images/lannister.png'
-        description = 'I spy the Lannister sigil, always pay your debts!'
-        break
-      case 'stark':
-        link = '/images/stark.png'
-        description = 'Looks like house Stark, winter is coming!'
-        break
-      case 'targaryen':
-        link = '/images/targaryen.png'
-        description = 'Fierce like the Mother of Dragons, you just entered the Targaryen sigil!'
-        break
-      case '':
-        link = '/images/Error.jpg'
-        description = 'Oops something went wrong! Submit another link to try again!'
-        break
+// Loops through restaurants and classifies them [{rid: int, url: string}]
+async function classifyRestaurants (restaurants) {
+    let tags = [];
+    for (let i = 0; i < restaurants.length; i++) {
+        let r = restaurants[i];
+        let tag = await callAPI(r.url);
+        tags.push({'rid': r.rid, 'tag': tag});
     }
-  
-    // Store suggestion
-    const data = {
-      photo: link,
-      description: description,
-      probability: top.Probability
-    }
-  
-    return data
-  }
+    return tags;
+}
+
+
+let restaurantList = [
+    {'rid': 1, 'url': 'http://www.seriouseats.com/recipes/assets_c/2016/01/20160206-fried-rice-food-lab-68-thumb-1500xauto-429632.jpg'},
+    {'rid': 2, 'url': 'http://www.seriouseats.com/assets_c/2014/02/20140214-macaroni-and-cheese-baked-potato-broccoli-cheese-nacho-01-thumb-625xauto-383784.jpg'}
+];
+async function test() {
+    let test = await classifyRestaurants(restaurantList);
+    //let test =  classifyRestaurants(restaurantList);    
+    console.log('test');
+    console.log(test);
+}
+
+test();

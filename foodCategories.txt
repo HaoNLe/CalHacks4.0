@@ -1,35 +1,35 @@
-apple pie
-baby back ribs
+apple_pie
+baby_back_ribs
 bibimbap
-breakfast burrito
-caesar salad
-cheese plate
-cheese cake
-chicken curry
-chicken quesadilla
-chicken wings
-chocolate cake
-clam chowder
-club sandwhich
+breakfast_burrito
+caesar_salad
+cheese_plate
+cheese_cake
+chicken_curry
+chicken_quesadilla
+chicken_wings
+chocolate_cake
+clam_chowder
+club_sandwhich
 donuts
 dumplings
-eggs benedict
-fish and chips
-french fries
-fried rice
+eggs_benedict
+fishvand_chips
+french_fries
+fried_rice
 guacamole
 hamburger
-hot dog
-ice cream
-macaroni and cheese
+hot_dog
+ice_cream
+macaroni_and_cheese
 nachos
 omelette
-onion rings
-pad thai
+onion_rings
+pad_thai
 pancakes
 pho
 pizza
-pork chop
+pork_chop
 ramen
 ravioli
 samosa
