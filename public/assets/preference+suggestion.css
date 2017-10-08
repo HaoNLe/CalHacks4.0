@@ -11,6 +11,10 @@ h4{
   font-weight: lighter;
 }
 
+.img-fit{
+  object-fit: cover;
+}
+
 .title{
   margin-left: 2%;
   font-size: 15pt;
