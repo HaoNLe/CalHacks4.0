@@ -3,3 +3,4 @@ node_modules/
 dist/
 .tscache/
 src/test.js
+src/test.ts

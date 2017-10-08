@@ -34,6 +34,9 @@ export class NewRoute extends BaseRoute {
     router.get("/teach", (req: Request, res: Response, next: NextFunction) => {
       new NewRoute().teach(req, res, next);
     });
+
+    //for preference submission
+    router.post('/teach', (req: Request, res:Response))
   }
 
   /**
@@ -50,7 +53,7 @@ export class NewRoute extends BaseRoute {
     //set custom title
     this.title = "3x3 grid";
 
-    let fileURLs = this.selectURLs();
+    let fileURLs = this.getURLs();
     //set options
     let options: Object = { "message":"Where2Eat", 'urls': fileURLs};
 
@@ -61,30 +64,32 @@ export class NewRoute extends BaseRoute {
   /**
    * Selects 9 random images from our 200 pre-classified image bank
    * 
-   * @return {string[]} list of URLs in the form of strings: '../images/<TAG>/<IMAGENAME>
+   * @return dictionary of URLs in the form of strings: '../images/<TAG>/<IMAGENAME> and Values: '0, 1,...,39'
    */
-  public selectURLs() {
+  public getURLs() {
     let fileURLs = [];
     for (let i = 0; i < 9; i++) {
-      // gets random index between 0-39
-      let randomIndex = Math.floor(Math.random() * 40);
-      if (randomIndex === 40) {
-          randomIndex = 39;
-      }
-      let dir = imageFolder + tagNames[randomIndex];
-      
-      //let dir = testFolder + tagNames[i];    
-      console.log("index: " + dir);
-      
-      fs.readdir(dir, (err, files) => {
-          console.log(dir);
-          let randomFile = Math.floor(Math.random() * files.length);
-          console.log(files[randomFile]);
-          let fullPath = dir + '/' + files[randomFile];
-          fileURLs.push(fullPath);
-        })
+        // gets random index between 0-39
+        let randomIndex = Math.floor(Math.random() * 40);
+        if (randomIndex === 40) {
+            randomIndex = 39;
+        }
+        let dir = imageFolder + tagNames[randomIndex];
+        
+        //let dir = testFolder + tagNames[i];    
+        console.log("index: " + dir);
+        
+        // get file names from a food folder
+        let fileNames = fs.readdirSync(dir);
+
+        // pick a random image index
+        let randomFileIndex = Math.floor(Math.random() * fileNames.length);
+        let fullPath = dir + '/' + fileNames[randomFileIndex];
+        let entry = {'imageURL': fullPath, 'value': randomIndex};
+        //console.log(entry);
+        fileURLs.push(entry);
     }
+    //console.log(fileURLs);
     return fileURLs;
   }
-
 }
