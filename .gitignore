@@ -4,3 +4,4 @@ dist/
 .tscache/
 src/test.js
 src/test.ts
+src/routes/test.ts

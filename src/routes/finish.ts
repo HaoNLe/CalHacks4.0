@@ -21,7 +21,7 @@ export class FinishRoute extends BaseRoute {
     console.log("[FinishRoute::create] Creating finish route.");
 
     //add home page route
-    router.get("/", (req: Request, res: Response, next: NextFunction) => {
+    router.get("/finish", (req: Request, res: Response, next: NextFunction) => {
       new FinishRoute().index(req, res, next);
     });
   }

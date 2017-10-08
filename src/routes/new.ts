@@ -55,7 +55,7 @@ export class NewRoute extends BaseRoute {
 
     let fileURLs = this.getURLs();
     //set options
-    let options: Object = { "message":"Where2Eat", 'urls': fileURLs};
+    let options: Object = { "message":"Create new preferences"};
 
     //render template
     this.render(req, res, "new", options);
