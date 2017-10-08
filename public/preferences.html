@@ -15,9 +15,7 @@
 		    });
 		$('.submit').click(function(){ 
 			// HARD-CODED TO TEST 
-			//$(".picker").empty();
-			//$(".picker").append("<select class='image-picker show-html' multiple='multiple'><option data-img-src='assets/img/puppy.jpeg' value='puppy'>Puppy</option><option data-img-src='https://pbs.twimg.com/profile_images/610457543857442817/wUcMHzJG_400x400.jpg' value='puppy2'>Puppy2</option><option data-img-src='https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg' value='puppy3'>Puppy</option></select>");
-			//$(".picker").trigger("refresh");
+			
 			// ------------
 
 			// console.log($('.image-picker').data('picker').selected_values().length);
@@ -78,9 +76,21 @@
 					values.push($(id).val());
 				}
 			}
-			console.log("HELLOOO");			
-			$.post("http://localhost:8080/teach", {values: values}, function(data){});
-			document.location.href = ('/teach');			
+			//console.log("HELLOOO");			
+			//$.post("http://localhost:8080/teach", {values: values}, function(data){});
+			//document.location.href = ('/teach');			
+			$(".picker").empty();
+			$(".picker").append("<select class='image-picker show-html' multiple='multiple'> \
+				<option data-img-src='assets/images/baby_back_ribs/3.jpg' value='puppy'>a</option> \
+				<option data-img-src='assets/images/fish_and_chips/934084.jpg' value='puppy2'>b</option> \
+				<option data-img-src='assets/images/ice_cream/81939.jpg' value='puppy3'>Puppy</c>\
+				<option data-img-src='assets/images/french_fries/71701.jpg' value='1'>d</option> \
+				<option data-img-src='assets/images/chicken_quesadilla/10257.jpg' value='e'>e</option> \
+				<option data-img-src='assets/images/clam_chowder/3241182.jpg' value='2'>f</option> \
+				<option data-img-src='assets/images/pho/472628.jpg' value='3'>g</option> \
+				<option data-img-src='assets/images/macaroni_and_cheese/379982.jpg' value='4'>h</option> \
+				<option data-img-src='assets/images/sushi/477126.jpg' value='5'>i</option></select>");
+			$(".picker").trigger("refresh");
 		});	
 	
 	});
@@ -104,15 +114,15 @@
 			<div class="col-xs-12 col-sm-4 col-md-4 green"></div>
 		</div> -->
 			<select class="image-picker show-html" multiple="multiple">
-				<option id="1" data-img-src="assets/img/kitten1.jpeg" value="cat1"></option>
-				<option id="2" data-img-src="assets/img/kitten1.jpeg" value="cat2"></option>
-				<option id="3" data-img-src="http://placekitten.com/150/200" value="cat3"></option>
-				<option id="4" data-img-src="assets/img/kitten1.jpeg" value="cat4"></option>
-				<option id="5" data-img-src="assets/img/kitten1.jpeg" value="cat5"></option>
-				<option id="6" data-img-src="http://placekitten.com/150/200" value="cat6"></option>
-				<option id="7" data-img-src="assets/img/kitten1.jpeg" value="cat7"></option>
-				<option id="8" data-img-src="assets/img/kitten1.jpeg" value="cat8"></option>
-				<option id="9" data-img-src="http://placekitten.com/150/200" value="cat9"></option>
+				<option id="1" data-img-src="assets/images/fried_rice/3542359.jpg" value="18"></option>
+				<option id="2" data-img-src="assets/images/cheese_cake/522074.jpg" value="cat2"></option>
+				<option id="3" data-img-src="assets/images/pizza/1029698.jpg" value="cat3"></option>
+				<option id="4" data-img-src="assets/images/bibimbap/1186072.jpg" value="cat4"></option>
+				<option id="5" data-img-src="assets/images/eggs_benedict/2427571.jpg" value="cat5"></option>
+				<option id="6" data-img-src="assets/images/onion_rings/2012870.jpg" value="cat6"></option>
+				<option id="7" data-img-src="assets/images/guacamole/959238.jpg" value="cat7"></option>
+				<option id="8" data-img-src="assets/images/pad_thai/1167.jpg" value="cat8"></option>
+				<option id="9" data-img-src="assets/images/samosa/1366299.jpg" value="cat9"></option>
 			</select>
 			
 		</div>
