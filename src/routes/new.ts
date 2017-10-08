@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
+<<<<<<< HEAD
+var path = require("path");
+=======
 const path = require('path');
+>>>>>>> 5492b88f7bbee937539aa831ed8a6984ba054637
 
 const imageFolder = '../images/';
 const fs = require('fs');
@@ -32,8 +36,13 @@ export class NewRoute extends BaseRoute {
     console.log("[NewRoute::create] Creating new route.");
 
     //add new page route
+<<<<<<< HEAD
+    router.get("/new",  function(req: Request, res: Response) {
+    res.sendFile(path.join(__dirname, '../public', 'preferences.html'));    
+=======
     router.get("/teach",  function(req: Request, res: Response) {
       res.sendFile(path.join(__dirname, '../public', 'preferences.html'));      
+>>>>>>> 5492b88f7bbee937539aa831ed8a6984ba054637
       //new NewRoute().teach(req, res, next);
     });
 

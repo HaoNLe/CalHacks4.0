@@ -26,7 +26,7 @@ export class RecommendRoute extends BaseRoute {
 
     //add recommend page route
     router.get("/recommend",  function(req: Request, res: Response) {
-        res.sendFile(path.join(__dirname, '../public', 'recommend.html'));
+      res.sendFile(path.join(__dirname, '../public', 'recommend.html'));
         //new RecommendRoute().recommend(req, res, next);
     });
   }

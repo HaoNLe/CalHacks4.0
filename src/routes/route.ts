@@ -1,4 +1,5 @@
 import {NextFunction, Request, Response} from "express";
+var ejs = require("ejs");
 
 export class BaseRoute {
     protected title: string;

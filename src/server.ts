@@ -19,6 +19,8 @@ export class Server {
         this.app=express();
         this.config();
         this.routes();
+        this.app.set('view engine', 'ejs');
+        
     }
 
     public config() {
